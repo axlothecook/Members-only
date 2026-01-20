@@ -1,0 +1,31 @@
+{
+  "name": "db-based-projects-template",
+  "version": "1.0.0",
+  "description": ">w<",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/axlothecook/db-based-projects-template.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/axlothecook/db-based-projects-template/issues"
+  },
+  "homepage": "https://github.com/axlothecook/db-based-projects-template#readme",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "ejs": "^4.0.1",
+    "express": "^5.2.1",
+    "express-session": "^1.18.2",
+    "morgan": "^1.10.1",
+    "nodemon": "^3.1.11",
+    "pg": "^8.17.1"
+  }
+}
