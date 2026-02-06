@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/svgs.css">
+    <link rel="stylesheet" href="/authStyle.css">
+    <title><%= title %></title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="global-wrapper">
+        <% if (errors && errors.length !== 0) { %>
+            <%- include('partials/errors', { errors }) %>
+        <% } %>
+        <div class="content">
+            <div class="form-wrapper">
+                <h2>Sign Up</h2>
+                <form action="/auth/signup" method="POST">
+                    <div>
+                        <label for="firstName">First Name</label>
+                        <input id="firstName" name="firstName" placeholder="firstName" type="text" autocomplete="off" />
+                    </div>
+                    <div>
+                        <label for="lastName">Last Name</label>
+                        <input id="lastName" name="lastName" placeholder="lastName" type="text" autocomplete="off" />
+                    </div>
+                    <div>
+                        <label for="email">Email</label>
+                        <input id="email" name="email" placeholder="email" type="email" autocomplete="off" />
+                    </div>
+                    <div>
+                        <label for="username">Username</label>
+                        <input id="username" name="username" placeholder="username" type="text" autocomplete="off" />
+                    </div>
+                    <div>
+                        <label for="password">Password</label>
+                        <input id="password" name="password" type="password" />
+                    </div>
+                    <div>
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input id="confirmPassword" name="confirmPassword" type="password" />
+                    </div>
+                    <button type="submit" class="btn form-btn">Sign Up</button>
+                </form>
+                <div class="link-options">
+                    <div>
+                        <h3>Already have an account?</h3>
+                        <a href="/auth/login">Log In</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include('partials/footbar') %>
+</body>
+</html>

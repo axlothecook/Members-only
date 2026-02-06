@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/svgs.css">
+    <link rel="stylesheet" href="/authStyle.css">
+    <title><%= title %></title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="global-wrapper">
+        <% if (errors && errors.length !== 0) { %>
+            <%- include('partials/errors', { errors }) %>
+        <% } %>
+        <div class="content">
+            <div class="form-wrapper">
+                <h2>Recover your password</h2>
+                <form action="/auth/recover" method="POST">
+                    <div>
+                        <label for="email">Email</label>
+                        <input id="email" name="email" placeholder="email" type="email" autocomplete="off" />
+                    </div>
+                    <div>
+                        <label for="password">New Password</label>
+                        <input id="password" name="password" type="password" />
+                    </div>
+                    <div>
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input id="confirmPassword" name="confirmPassword" type="password" />
+                    </div>
+                    <button type="submit" class="btn form-btn">Change Password</button>
+                </form>
+                <div class="link-options">
+                    <div>
+                        <a href="/auth/login">Go back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include('partials/footbar') %>
+</body>
+</html>

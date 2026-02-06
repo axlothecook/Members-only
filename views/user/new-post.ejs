@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/svgs.css">
+    <link rel="stylesheet" href="/authStyle.css">
+    <title><%= title %></title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="global-wrapper">
+        <% if (errors && errors.length !== 0) { %>
+            <%- include('../partials/errors', { errors }) %>
+        <% } %>
+        <div class="content">
+            <div class="form-wrapper">
+                <h2>Write a Post</h2>
+                <form action="/user/<%= userId %>/new-post" method="POST">
+                    <div>
+                        <label for="title">Title</label>
+                        <input 
+                            id="title" 
+                            name="title" 
+                            placeholder="TODAY I LEARNED" 
+                            type="text" 
+                            autocomplete="off"
+                        />
+                    </div>
+                    <div>
+                        <label for="content">Post</label>
+                        <textarea id="content" name="content" placeholder="10 reasons why cats are secretly humans:" autocomplete="off"></textarea>
+                    </div>
+                    <button type="submit" class="btn tweet-btn">Tweet</button>
+                </form>
+                <div class="link-options">
+                    <div>
+                        <a href="/">Go Home</a>
+                    </div>
+                    <div>
+                        <a href="/user/<%= userId %>/all-posts">Dashboard</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include('../partials/footbar') %>
+</body>
+</html>

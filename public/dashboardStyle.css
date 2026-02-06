@@ -1,0 +1,15 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.content h1 {
+    text-align: center;
+}
+
+.posts-wrapper {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    gap: 2rem;
+}

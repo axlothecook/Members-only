@@ -1,19 +1,27 @@
-//don't forget to add .env file
-
 const db = require('../db/queries');
-
 const { navLinks } = require('../data');
 
-const getHomepage = (req, res) => {
-    // const genreList = await db.getAllGenres();
+// GET HOMEPAGE
 
-    res.render('index', {
-        title: 'Authentication Practice',
-        navLinks,
-        errors: null
-    });
+const getHomepage = async (req, res) => {
+  const postsArr = await db.getAllPosts(req.user.user_id);
+  res.render('index', {
+    title: 'Welcome to the Club!',
+    navLinks,
+    user: req.user,
+    postsArr
+  });
+};
+
+// GET LOG OUT
+const getLogOutForm = async (req, res, next) => {
+  req.logout((err) => {
+    if (err) return next(err);
+    res.redirect('/auth/login');
+  });
 };
 
 module.exports = {
-    getHomepage
-}
+  getHomepage,
+  getLogOutForm
+};

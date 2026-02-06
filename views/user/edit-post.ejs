@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/svgs.css">
+    <link rel="stylesheet" href="/authStyle.css">
+    <title><%= title %></title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="global-wrapper">
+        <% if (errors && errors.length !== 0) { %>
+            <%- include('../partials/errors', { errors }) %>
+        <% } %>
+        <div class="content">
+            <div class="form-wrapper">
+                <h2>Write a Post</h2>
+                <form action="/user/<%= post.post_id %>/edit-post" method="POST">
+                    <div>
+                        <label for="title">Title</label>
+                        <input 
+                            id="title" 
+                            name="title" 
+                            type="text" 
+                            value="<%= post.title %>"
+                            autocomplete="off"
+                        />
+                    </div>
+                    <div>
+                        <label for="content">Post</label>
+                        <textarea id="content" name="content" autocomplete="off"><%= post.content %></textarea>
+                    </div>
+                    <button type="submit" class="btn tweet-btn">Tweet</button>
+                </form>
+                <div class="link-options">
+                    <div>
+                        <a href="/">Go Home</a>
+                    </div>
+                    <div>
+                        <a href="/user/<%= userId %>/all-posts">Dashboard</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include('../partials/footbar') %>
+</body>
+</html>

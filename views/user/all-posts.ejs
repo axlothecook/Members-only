@@ -5,19 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="/svgs.css">
+    <link rel="stylesheet" href="/dashboardStyle.css">
     <title><%= title %></title>
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <div class="global-wrapper">
-        <%- include('partials/navbar', { navLinks, user }) %>
-        <div class="content content-grid-index">
-            <h1>Hello <%= user.username %> :D</h1>
+        <%- include('../partials/navbar', { navLinks, user }) %>
+        <div class="content">
+            <h1>Your posts</h1>
             <div class="posts-wrapper">
                 <% if (postsArr && postsArr.length > 0) { %>
                     <div class="main-content">
                         <% postsArr.forEach(post => { %>
-                            <%- include('partials/post', { post }) %>
+                            <%- include('../partials/post', { post }) %>
                         <% }) %>
                     </div>
                 <% } %>
@@ -25,6 +26,6 @@
             </div>
         </div>
     </div>
-    <%- include('partials/footbar') %>
+    <%- include('../partials/footbar') %>
 </body>
 </html>

@@ -20,12 +20,18 @@
   },
   "homepage": "https://github.com/axlothecook/db-based-projects-template#readme",
   "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "date-fns": "^4.1.0",
     "dotenv": "^17.2.3",
     "ejs": "^4.0.1",
     "express": "^5.2.1",
     "express-session": "^1.18.2",
+    "express-validator": "^7.3.1",
     "morgan": "^1.10.1",
+    "multer": "^2.0.2",
     "nodemon": "^3.1.11",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0",
     "pg": "^8.17.1"
   }
 }

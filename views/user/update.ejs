@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/svgs.css">
+    <link rel="stylesheet" href="/authStyle.css">
+    <title><%= title %></title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="global-wrapper">
+        <% if (errors && errors.length !== 0) { %>
+            <%- include('../partials/errors', { errors }) %>
+        <% } %>
+        <div class="content">
+            <div class="form-wrapper">
+                <h2>Update your data</h2>
+                <form action="/user/<%= user.user_id %>/update" method="POST" enctype="multipart/form-data">
+                    <div>
+                        <label for="firstName">First Name</label>
+                        <input id="firstName" name="firstName" placeholder="firstName" type="text" value="<%= user.firstname %>" autocomplete="off" />
+                    </div>
+                    <div>
+                        <label for="lastName">Last Name</label>
+                        <input id="lastName" name="lastName" placeholder="lastName" type="text" value="<%= user.lastname %>" autocomplete="off" />
+                    </div>
+                    <div>
+                        <label for="email">Email</label>
+                        <input id="email" name="email" placeholder="email" type="email" value="<%= user.email %>" autocomplete="off" />
+                    </div>
+                    <div>
+                        <label for="username">Username</label>
+                        <input id="username" name="username" placeholder="username" type="text" value="<%= user.username %>" autocomplete="off" />
+                    </div>
+                    <div>
+                        <label for="password">Change Password</label>
+                        <input id="password" name="password" type="password" autocomplete="off" />
+                    </div>
+                    <div>
+                        <label for="image">Change Profile Picture</label>
+                        <input id="image" name="image" type="file" />
+                    </div>
+                    <button type="submit" class="btn form-btn">Update Information</button>
+                </form>
+                <div class="link-options">
+                    <div>
+                        <a href="/user/<%= user.user_id %>/all-posts">Dashboard</a>
+                    </div>
+                    <div>
+                        <a href="/">Home</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include('../partials/footbar') %>
+</body>
+</html>

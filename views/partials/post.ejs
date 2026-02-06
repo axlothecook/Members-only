@@ -1,0 +1,37 @@
+<div class="post">
+    <h2><%= post.title %></h2>
+    <div class="post-user-info">
+        <div class="name-and-photo">
+            <div class="pfp-wrapper" style="background-image: <%= post.url %>"></div>
+            <% if (post.membershiptier === 'basic' && !post.owned) { %>
+                <h4>
+                    <% for (let i = 0; i < post.user.length; i++) { %>
+                        *
+                    <% } %>
+                </h4>
+            <% } else { %>
+                <h4><%= post.user %></h4>
+            <% } %>
+        </div>
+        <% if (post.membershiptier === 'basic' && !post.owned) { %>
+            <h5>Date:
+                <% for (let i = 0; i < post.date.length; i++) { %>
+                    *
+                <% } %>
+            </h5>
+        <% } else { %>
+            <h5><%= post.date %></h5>
+        <% } %>
+    </div>
+    <div class="post-body">
+        <h3><%= post.content %></h3>
+        <% if (post.owned) { %>
+            <div class="edit-btns">
+                <a href="/user/<%= post.post_id %>/edit-post" class="btn changed-style-btn">Edit</a>
+                <a href="/user/<%= post.post_id %>/dlt-post" class="btn changed-style-btn">Delete</a>
+            </div>
+        <% } else if (post.membershiptier === 'admin') { %>
+            <a href="/user/<%= post.post_id %>/dlt-post" class="btn changed-style-btn">Delete</a>
+        <% } %>
+    </div>
+</div>

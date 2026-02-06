@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/svgs.css">
+    <link rel="stylesheet" href="/authStyle.css">
+    <title><%= title %></title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="global-wrapper">
+        <div class="content">
+            <div class="form-wrapper">
+                <h2>Log in</h2>
+                <form action="/auth/login" method="POST">
+                    <div>
+                        <label for="username">Username</label>
+                        <input id="username" name="username" placeholder="Bobby354" type="text" autocomplete="off" />
+                        <% if(warning && warning.includes('username')) { %>
+                            <p><%= warning %></p>
+                        <% } %>
+                    </div>
+                    <div>
+                        <label for="password">Password</label>
+                        <input id="password" name="password" type="password" />
+                        <% if(warning && warning.includes('password')) { %>
+                            <p><%= warning %></p>
+                        <% } %>
+                    </div>
+                    <button type="submit" class="btn form-btn">Log In</button>
+                </form>
+                <div class="link-options">
+                    <div>
+                        <h3>Don't have an account?</h3>
+                        <a href="/auth/signup">Sign Up</a>
+                    </div>
+                    <div>
+                        <h3>Forgot your password?</h3>
+                        <a href="/auth/recover">Recover</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include('partials/footbar') %>
+</body>
+</html>

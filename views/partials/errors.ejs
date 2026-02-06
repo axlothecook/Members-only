@@ -3,3 +3,16 @@
         <li><%= err.msg %></li>
     <% }) %>
 </ul>
+
+<script>
+    function testForError() {
+        const error = document.getElementById('error-wrapper');
+        if(document.body.contains(error)) {
+            setTimeout(() => {
+                error.style.display = 'none';
+            }, 5000);
+        };
+    };
+
+    testForError();
+</script>
